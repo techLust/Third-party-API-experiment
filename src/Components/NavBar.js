@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-const navbar = () => {
+const NavBar = ({ setPokemons }) => {
   return (
     <div className="nav_container">
       <div className="nav-item">
@@ -11,9 +11,9 @@ const navbar = () => {
         </li>
       </div>
       <div>
-        <SearchBar />
+        <SearchBar setPokemons={setPokemons} />
       </div>
     </div>
   );
 };
-export default navbar;
+export default NavBar;

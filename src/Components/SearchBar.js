@@ -7,7 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 
-export default function CustomizedInputBase() {
+export default function SearchBar({ setPokemons }) {
   const [search, setSearch] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const [showCloseButton, setShowCloseButton] = React.useState(false);
@@ -26,13 +26,22 @@ export default function CustomizedInputBase() {
     setShowCloseButton(false);
     setIsLoading(false);
   };
+
+  const fetchElement = (pokemonArray) => {
+    const finalArray = [];
+    pokemonArray?.map((item) => {
+      finalArray.push(item.ability);
+    });
+    return finalArray;
+  };
+
   // Calling Pokemon API
   const searchPokemon = () => {
     setIsLoading(true);
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${search}`)
       .then((res) => {
-        console.log(res);
+        setPokemons(fetchElement(res?.data?.abilities));
         setIsLoading(false);
       })
       .catch((err) => {
@@ -48,7 +57,7 @@ export default function CustomizedInputBase() {
     >
       <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Search Google Maps"
+        placeholder="Search pokemons here...."
         inputProps={{ "aria-label": "search google maps" }}
         value={search ? search : ""}
         onChange={searchHandler}
