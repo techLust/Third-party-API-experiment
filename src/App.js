@@ -10,8 +10,8 @@ function App() {
 
   useEffect(() => {
     axios.get("https://pokeapi.co/api/v2/pokemon").then((res) => {
-      console.log(res?.data?.results);
       setPokemons(res?.data?.results);
+      console.log(res?.data);
     });
   }, []);
 
