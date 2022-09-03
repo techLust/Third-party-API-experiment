@@ -1,0 +1,29 @@
+.container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.weather_header {
+  font-weight: 1000;
+}
+.button_container {
+  margin-top: 10px;
+}
+.search_container {
+  width: 100%;
+}
+
+.weather_icon {
+  width: 120px;
+  height: 90px;
+}
+
+.card_container {
+  margin-top: 2rem;
+  background-color: #0099e6 !important;
+  color: white !important;
+  font-size: 1.1em !important;
+  /* height: 30rem; */
+  width: 100%;
+}
